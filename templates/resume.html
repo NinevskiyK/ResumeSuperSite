@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ resume.resume_name }}</title>
+    <style>
+    body {
+        background-color: azure;
+        color: aquamarine;
+    }
+    .border {
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        width: 50%;
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+<div style="width: 100%; text-align: center; padding-top: 10%;">
+    <div class="border">
+    <h1>{{ resume.name }}</h1><br>
+    {{ resume.phone }} | {{ resume.email }}<br>
+    <b>My skills:</b> {{ resume.skills }}<br>
+        <div class="border">
+    <h2>Education</h2>
+    <b>Univeristy: </b>{{ resume.university_name }}, {{ resume.university_start_date }} - {{ resume.university_end_date }}<br>
+    <b>Specialization: </b>{{ resume.university_specialization }} <br>
+        </div>
+        <br><br>
+        <div class="border">
+    <h2>Work experience</h2>
+    {{ resume.work_name }}, {{ resume.work_start_date }} - {{ resume.work_end_date }}<br>
+    <b>Specialization: </b>{{ resume.university_specialization }} <br>
+    <b>Projects:</b> {{ resume.work_projects }}
+        </div>
+    <h2>Hobbies!</h2>
+    {{ resume.hobbies }}
+        </div>
+</div>>
+</body>
+</html>

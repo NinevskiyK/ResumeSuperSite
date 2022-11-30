@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+My resumes
+{% endblock %}
+
+{% block content %}
+    <h1> My resumes:</h1> <br>
+    {% for resume in resumes %}
+        <a href="{% url 'see_resume_url' user.get_username resume.name %}" class="cool_link"> {{ resume.name }}</a>
+        <a href="{% url 'download_resume_url' user.get_username resume.name %}" class="cool_link"> Download {{ resume.name }}! </a><br><br><br>
+        {% endfor %}
+    <br><br><br>
+    <a href="{% url 'create_resume_url' user.get_username %}" class="cool_link"> Create! </a>
+{% endblock %}

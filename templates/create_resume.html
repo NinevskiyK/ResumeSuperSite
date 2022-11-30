@@ -1,0 +1,27 @@
+
+
+{% extends 'base.html' %}
+{% block title %}
+My resumes
+{% endblock %}
+
+{% block content %}
+    <div style="width: 100%; text-align: center; padding-top: 10%">
+<main class="form-signin">
+  <form class="nice_text" method="post" action="{% url 'create_resume_url' user.get_username %}">
+{% if form.errors %}
+         Error! Try again!
+{% endif %}
+  {% csrf_token %}
+        <h1>Resume!!</h1>
+        {% for field in form %}
+            {{field.label_tag}}
+            <br>
+            {{field}}
+            <br><br>
+        {% endfor %}
+<input type="submit" value="Make resume!" class="nice_button"/> <br>
+</form>
+</main>
+</div>
+{% endblock %}

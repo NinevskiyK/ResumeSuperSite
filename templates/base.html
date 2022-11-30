@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+<style>
+    .sidebar {
+    height: 100%;
+    width: 150px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 40px;
+    background-color: burlywood;
+    }
+
+    .sidebar div {
+    padding: 10px;
+    font-size: 24px;
+    display: block;
+    }
+
+    .content {
+    margin-left: 150px;
+    font-size: 18px;
+    color: burlywood;
+    }
+
+    .cool_link {
+          background-color: chocolate;
+          color: white;
+          padding: 1em 1.5em;
+          text-decoration: none;
+          text-transform: uppercase;
+    }
+
+    input {
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            width: 20%;
+            height:25px;
+        }
+        .nice_text {
+            color: burlywood;
+        }
+        .nice_button {
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            width: 10%;
+            height:25px;
+        }
+</style>
+</head>
+
+<body>
+<div>
+    <div class="sidebar">
+        <div>
+        Hey, {{ user.get_username }}
+        <ul>
+            <li><a href="{% url 'resume_list_url' user.get_username %}">My resumes</a></li>
+            <li><a href="{% url 'logout'%}">Logout</a></li>
+        </ul>
+            </div>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        .nice_form{
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            width: 20%;
+            height:25px;
+        }
+        .nice_text {
+            color: burlywood;
+        }
+        .nice_button {
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            width: 10%;
+            height:25px;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 100%; text-align: center; padding-top: 10%">
+<main class="form-signin">
+  <form class="nice_text" method="post" action="{% url 'login' %}">
+{% if form.errors %}
+         Error! Try again!
+{% endif %}
+  {% csrf_token %}
+  <h1>Please sign in</h1>
+  <label for="id_username">Username</label>
+  <br>
+  <input type="text" id="id_username" class="nice_form" placeholder="Username" name="username" required autofocus>
+  <br><br>
+  <label for="id_password">Password</label>
+  <br>
+  <input type="password" id="id_password" class="nice_form"  name="password" placeholder="Password" required>
+    <br><br>
+<input type="submit" value="Login" class="nice_button"/> <br>
+<a href="{% url 'register' %}">Don't have an account?</a>
+</form>
+</main>
+    </div>
+</body>
+</html>

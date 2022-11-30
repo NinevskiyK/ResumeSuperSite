@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        input {
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            width: 20%;
+            height:25px;
+        }
+        .nice_text {
+            color: burlywood;
+        }
+        .nice_button {
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            width: 10%;
+            height:25px;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 100%; text-align: center; padding-top: 10%">
+<main class="form-signin">
+  <form class="nice_text" method="post" action="{% url 'register' %}">
+{% if form.errors %}
+         Error! Try again!
+{% endif %}
+  {% csrf_token %}
+        <h1>Register!</h1>
+        {% for field in form %}
+            {{field.label_tag}}
+            <br>
+            {{field}}
+            <br><br>
+        {% endfor %}
+<input type="submit" value="Register!" class="nice_button"/> <br>
+<a href="{% url 'login' %}">Have an account?</a>
+</form>
+</main>
+    </div>
+</body>
+</html>
