@@ -44,7 +44,7 @@ def resume_download(request, user_login, resume_name):
     resume = Resume.objects.get(user=request.user.id, name=resume_name)
     a = render(request, 'resume.html', locals())
     path = 'resume/resumes/{}.pdf'.format(uuid.uuid4())
-    pdfkit.from_string(a.content, path)
+    pdfkit.from_string(str(a.content), path)
     a['Content-Disposition'] = "attachment; filename=%s" % path
     return a
 
