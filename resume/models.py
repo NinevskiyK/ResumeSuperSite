@@ -12,13 +12,13 @@ class Resume(models.Model):
     # university
     university_name = models.CharField(max_length=100)
     university_specialization = models.CharField(max_length=100)
-    university_start_date = models.DateField()
-    university_end_date = models.DateField()
+    university_start_date = models.CharField(max_length=100)
+    university_end_date = models.CharField(max_length=100)
     # work
     work_name = models.CharField(max_length=100)
     work_specialization = models.CharField(max_length=100)
-    work_start_date = models.DateField()
-    work_end_date = models.DateField()
+    work_start_date = models.CharField(max_length=100)
+    work_end_date = models.CharField(max_length=100)
     work_projects = models.TextField()
     # about yourseld
     skills = models.CharField(max_length=100)
